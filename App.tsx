@@ -24,15 +24,15 @@ export default function App() {
           <Text className="mt-2 text-3xl font-bold">Hjelp</Text>
         </Pressable>
       </View>
-      <View className="flex flex-row gap-4">
-        <Pressable className="aspect-[3/4] w-1/3 items-center justify-center rounded bg-green-500">
+      <View className="flex flex-row gap-8">
+        <Pressable className="aspect-[3/4] w-1/3 items-center justify-center rounded-xl bg-green-500">
           <Ionicons name="checkbox-outline" size={70} />
           <View className="flex items-center">
             <Text className="font-bold">TryggAlarm</Text>
             <Text className="font-bold">Tilkoblet</Text>
           </View>
         </Pressable>
-        <Pressable className="flex aspect-[3/4] w-1/3 items-center justify-center rounded bg-blue-500">
+        <Pressable className="flex aspect-[3/4] w-1/3 items-center justify-center rounded-xl bg-blue-500">
           <Ionicons name="chatbox-outline" size={70} />
           <Text className="text-3xl font-bold">Chat</Text>
         </Pressable>

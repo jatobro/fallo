@@ -4,7 +4,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { MenuButton } from "../components/MenuButton";
 import { styles } from "../styles";
 
-const Home = () => {
+const home = () => {
   return (
     <View className="flex h-full justify-around">
       <View />
@@ -19,11 +19,11 @@ const Home = () => {
         </Pressable>
       </View>
       <View className="flex h-1/3 w-full flex-row items-center justify-around p-4">
-        <MenuButton label="Tilkoblet" icon="checkmark-outline" />
-        <MenuButton label="Chat" icon="chatbubbles-outline" />
+        <MenuButton variant="connection" isConnected />
+        <MenuButton variant="chat" />
       </View>
     </View>
   );
 };
 
-export default Home;
+export default home;

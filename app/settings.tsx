@@ -1,11 +1,13 @@
-import { Link } from "expo-router";
-import { View, Text } from "react-native";
+import { View } from "react-native";
+
+import { SettingButton } from "../components/SettingButton";
 
 const Settings = () => {
   return (
-    <View className="flex-1 items-center justify-center gap-4 bg-white">
-      <Text>Settings</Text>
-      <Link href="/home">tilbake</Link>
+    <View className="flex h-full flex-col items-center justify-evenly p-2">
+      {Array.from({ length: 10 }).map((_, i) => (
+        <SettingButton key={i} label={`Setting ${i + 1}`} />
+      ))}
     </View>
   );
 };

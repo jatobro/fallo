@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 
-const chat = () => {
+const Chat = () => {
   return (
     <View>
       <Text>Chat</Text>
@@ -8,4 +8,4 @@ const chat = () => {
   );
 };
 
-export default chat;
+export default Chat;

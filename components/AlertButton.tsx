@@ -11,23 +11,28 @@ export const AlertButton = () => {
 
   useEffect(() => {
     if (location) {
+      const { latitude, longitude } = location.coords;
+
       writeAlertData({
-        alertId: "69",
+        alertId: "test-alert-id",
         time: new Date(),
-        location,
-        message: "Help needed",
+        location: { latitude, longitude },
+        message: "Test message",
       });
     }
   }, [location]);
 
   return (
     <Pressable
+      disabled={isLoading}
       onPress={() => getLocation()}
       style={styles.shadow}
-      className="shadow-{lg} flex aspect-square w-52 flex-col items-center justify-center rounded-full bg-red-400"
+      className="shadow-{lg} flex aspect-square w-52 flex-col items-center justify-center rounded-full bg-red-400 disabled:opacity-50"
     >
       <Ionicons name="notifications-outline" size={50} />
-      <Text className="mt-2 text-3xl font-bold">Hjelp</Text>
+      <Text className="mt-2 text-3xl font-bold">
+        {isLoading ? "Henter lokasjon..." : "Hjelp"}
+      </Text>
     </Pressable>
   );
 };

@@ -7,6 +7,11 @@ export type User = {
 export type Alert = {
   alertId: string;
   time: Date;
-  location: string;
+  location: Location;
   message: string;
+};
+
+type Location = {
+  latitude: number;
+  longitude: number;
 };

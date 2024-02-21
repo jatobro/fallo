@@ -14,7 +14,7 @@ export const AlertButton = () => {
       writeAlertData({
         alertId: "69",
         time: new Date(),
-        location: location ?? "unknown",
+        location,
         message: "Help needed",
       });
     }

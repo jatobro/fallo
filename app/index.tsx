@@ -2,7 +2,7 @@ import * as Location from "expo-location";
 import { Redirect } from "expo-router";
 import { useEffect } from "react";
 
-export const Index = () => {
+const Index = () => {
   useEffect(() => {
     (async () => {
       const { status } = await Location.requestBackgroundPermissionsAsync();

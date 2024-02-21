@@ -11,7 +11,7 @@ export const writeAlertData = ({ alertId, time, location, message }: Alert) => {
     location,
     message,
   })
-    .then(() => console.log(`Alert with id ${alertId} written to database`))
+    .then(() => console.log(`alert with id '${alertId}' written to database`))
     .catch((error) =>
       console.error("Error writing alert to database: ", error),
     );

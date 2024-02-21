@@ -10,9 +10,15 @@ export const useGetLocation = () => {
   const getLocation = async () => {
     setIsLoading(true);
 
+    console.log("getting current location...");
+
     Location.getCurrentPositionAsync({})
       .then(setLocation)
-      .then(() => setIsLoading(false));
+      .then(() => console.log("current location gotten successfully"))
+      .then(() => setIsLoading(false))
+      .catch((error) =>
+        console.error("error getting current location:", error),
+      );
   };
 
   return { location, isLoading, getLocation };

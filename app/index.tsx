@@ -10,8 +10,10 @@ const Index = () => {
     (async () => {
       const { status } = await Location.requestBackgroundPermissionsAsync();
 
-      if (status !== "granted") {
-        console.error("location permission not granted");
+      if (status === "granted") {
+        console.log("location permission success");
+      } else {
+        console.error("location permission denied");
       }
     })();
   }, []);

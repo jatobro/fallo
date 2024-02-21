@@ -17,7 +17,7 @@ export const AlertButton = () => {
         alertId: "test-alert-id",
         time: new Date(),
         location: { latitude, longitude },
-        message: "Test message",
+        message: "test message",
       });
     }
   }, [location]);

@@ -1,16 +1,18 @@
-import { getDatabase, ref, set, get, child } from "firebase/database";
+import { child, get, ref, set } from "firebase/database";
 
-const db = getDatabase();
+import { db } from "../firebase/config";
+import { type User } from "../types";
 
-export const writeUserData = (userId: string, name: string, email: string) => {
+export const writeUserData = ({ userId, name, email }: User) => {
   set(ref(db, "users/" + userId), {
     username: name,
     email,
   });
 };
 
-export const readUserData = (userId: string) => {
-  get(ref(db, "users/" + userId))
+export const readUserData = ({ userId }: User) => {
+  const dbRef = ref(db);
+  get(child(dbRef, "users/" + userId))
     .then((snapshot) => {
       if (snapshot.exists()) {
         console.log(snapshot.val());

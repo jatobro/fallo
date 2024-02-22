@@ -3,8 +3,11 @@ import { set, ref } from "firebase/database";
 import { db } from "../firebase/config";
 import { type Alert } from "../types";
 
-export const writeAlertData = ({ alertId, time, location, message }: Alert) => {
+export const writeAlertData = (alert: Alert) => {
   console.log("attempting to write alert...");
+
+  const { alertId, time, location, message } = alert;
+
   set(ref(db, "alerts/" + alertId), {
     alertId,
     time,

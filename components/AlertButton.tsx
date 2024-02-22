@@ -5,20 +5,21 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { writeAlertData } from "../api/alerts";
 import { useGetLocation } from "../hooks/useGetLocation";
 import { styles } from "../styles";
+import { type Alert } from "../types";
 
 export const AlertButton = () => {
   const { location, isLoading, getLocation } = useGetLocation();
 
   useEffect(() => {
     if (location) {
-      const { latitude, longitude } = location.coords;
-
-      writeAlertData({
+      const newAlert: Alert = {
         alertId: "test-alert-id",
         time: new Date(),
-        location: { latitude, longitude },
+        location: location.coords,
         message: "test message",
-      });
+      };
+
+      writeAlertData(newAlert);
     }
   }, [location]);
 

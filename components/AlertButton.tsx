@@ -3,12 +3,9 @@ import { Pressable, Text } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { writeAlertData } from "../api/alerts";
-
-import { useGetLocation } from "../hooks/useGetLocation";
-import { sendSMS } from "../services/sms";
-import { styles } from "../styles";
-import { type Alert } from "../types";
 import { useAlert } from "../hooks/useAlert";
+import { useGetLocation } from "../hooks/useGetLocation";
+import { styles } from "../styles";
 
 export const AlertButton = () => {
   const { isLoading, location, getLocation } = useGetLocation();

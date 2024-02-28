@@ -1,23 +1,17 @@
-import * as Location from "expo-location";
 import { useEffect, useState } from "react";
 import { View, Text } from "react-native";
 
 import { AlertButton } from "../components/AlertButton";
 import { MenuButton } from "../components/MenuButton";
+import { requestLocationPermission } from "../services/location";
 
 const Index = () => {
-  const [granted, setGranted] = useState(false);
+  const [status, setStatus] = useState("");
 
   useEffect(() => {
     (async () => {
-      const { status } = await Location.requestBackgroundPermissionsAsync();
-
-      if (status === "granted") {
-        console.log("location permission success");
-        setGranted(true);
-      } else {
-        console.error("location permission denied");
-      }
+      const status = await requestLocationPermission();
+      setStatus(status);
     })();
   }, []);
 
@@ -26,7 +20,7 @@ const Index = () => {
       <View />
       <View className="flex flex-col items-center justify-center">
         <Text className="mb-3 text-lg">
-          {granted ? "Trykk for å få hjelp" : "TILLAT STEDSTJENESTER"}
+          {status ? "Trykk for å få hjelp" : "TILLAT STEDSTJENESTER"}
         </Text>
         <AlertButton />
       </View>

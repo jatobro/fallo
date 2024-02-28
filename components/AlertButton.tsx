@@ -8,14 +8,16 @@ import { styles } from "../styles";
 import { type Alert } from "../types";
 
 export const AlertButton = () => {
-  const { location, isLoading, getLocation } = useGetLocation();
+  const { isLoading, location, getLocation } = useGetLocation();
 
   useEffect(() => {
     if (location) {
+      const { longitude, latitude } = location.coords;
+
       const newAlert: Alert = {
         alertId: "test-alert-id",
         time: new Date(),
-        location: location.coords,
+        coordinates: { longitude, latitude },
         message: "test message",
       };
 

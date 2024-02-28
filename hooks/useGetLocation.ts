@@ -16,10 +16,11 @@ export const useGetLocation = () => {
       .then(setLocation)
       .then(() => console.log("current location gotten successfully"))
       .then(() => setIsLoading(false))
-      .catch((error) =>
-        console.error("error getting current location:", error),
-      );
+      .catch((error) => {
+        console.error("error getting current location:", error);
+        setIsLoading(false);
+      });
   };
 
-  return { location, isLoading, getLocation };
+  return { isLoading, location, getLocation };
 };

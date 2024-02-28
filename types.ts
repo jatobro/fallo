@@ -7,11 +7,11 @@ export type User = {
 export type Alert = {
   alertId: string;
   time: Date;
-  location: Location;
+  coordinates: Coordinates;
   message: string;
 };
 
-type Location = {
+type Coordinates = {
   latitude: number;
   longitude: number;
 };

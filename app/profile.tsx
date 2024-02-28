@@ -7,7 +7,7 @@ const Profile = () => {
   const { user } = useAuth();
 
   return (
-    <View className="p-4">
+    <View className="flex h-full items-center justify-center bg-red-500 p-4">
       {user ? <Text>{user.name}</Text> : <UserForm />}
     </View>
   );

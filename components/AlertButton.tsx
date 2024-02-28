@@ -3,25 +3,21 @@ import { Pressable, Text } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { writeAlertData } from "../api/alerts";
+
 import { useGetLocation } from "../hooks/useGetLocation";
+import { sendSMS } from "../services/sms";
 import { styles } from "../styles";
 import { type Alert } from "../types";
+import { useAlert } from "../hooks/useAlert";
 
 export const AlertButton = () => {
   const { isLoading, location, getLocation } = useGetLocation();
+  const { generateAlert } = useAlert();
 
   useEffect(() => {
     if (location) {
-      const { longitude, latitude } = location.coords;
-
-      const newAlert: Alert = {
-        alertId: "test-alert-id",
-        time: new Date(),
-        coordinates: { longitude, latitude },
-        message: "test message",
-      };
-
-      writeAlertData(newAlert);
+      const alert = generateAlert(location, "Help me!");
+      writeAlertData(alert);
     }
   }, [location]);
 

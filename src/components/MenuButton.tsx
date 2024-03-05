@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Pressable, Text, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
-
 import { useAlert } from "../hooks/useAlert";
 import { useGetLocation } from "../hooks/useGetLocation";
 import { sendSMS } from "../services/sms";
@@ -17,13 +16,17 @@ export const MenuButton = ({
   isConnected = false,
 }: MenuButtonProps) => {
   const { location, getLocation } = useGetLocation();
-  const { generateAlert } = useAlert();
+  const { alert, createAlert } = useAlert();
 
   useEffect(() => {
     (async () => {
       if (location) {
-        const alert = generateAlert(location, "Chat with me!");
-        await sendSMS(alert);
+        const { latitude, longitude } = location.coords;
+        createAlert({ latitude, longitude }, "Chat with me!");
+
+        if (alert) {
+          await sendSMS(alert);
+        }
       }
     })();
   }, [location]);

@@ -1,5 +1,4 @@
 import * as SMS from "expo-sms";
-
 import { type Alert } from "../types";
 
 export const sendSMS = async (alert: Alert) => {

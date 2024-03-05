@@ -13,7 +13,7 @@ export type Alert = {
   message: string;
 };
 
-type Coordinates = {
+export type Coordinates = {
   latitude: number;
   longitude: number;
 };

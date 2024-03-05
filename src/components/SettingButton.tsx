@@ -1,5 +1,5 @@
-import { View } from "react-native";
 import { Link } from "expo-router";
+import { View } from "react-native";
 
 type SettingButtonProps = {
   label: string;

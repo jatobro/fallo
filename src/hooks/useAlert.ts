@@ -1,25 +1,28 @@
-import * as Location from "expo-location";
-
-import { Alert } from "../types";
+import { useState } from "react";
+import { writeAlertData } from "../api/alerts";
+import { Alert, Coordinates } from "../types";
 import { useAuth } from "./useAuth";
 
 export const useAlert = () => {
   const { user } = useAuth();
 
-  const generateAlert = (
-    location: Location.LocationObject,
-    message: string,
-  ) => {
-    const { longitude, latitude } = location.coords;
+  const [alert, setAlert] = useState<Alert>();
 
-    return {
+  const createAlert = (coordinates: Coordinates, message: string) => {
+    setAlert({
       alertId: "test-alert-id",
       user,
       time: new Date(),
-      coordinates: { longitude, latitude },
+      coordinates,
       message,
-    } as Alert;
+    });
   };
 
-  return { generateAlert };
+  const writeAlert = () => {
+    if (alert) {
+      writeAlertData(alert);
+    }
+  };
+
+  return { alert, createAlert, writeAlert };
 };

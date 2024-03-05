@@ -1,8 +1,7 @@
 import { View } from "react-native";
-
 import { SettingButton } from "../components/SettingButton";
 
-const Settings = () => {
+const Page = () => {
   return (
     <View className="flex h-full flex-col items-center justify-evenly p-2">
       {Array.from({ length: 10 }).map((_, i) => (
@@ -12,4 +11,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default Page;

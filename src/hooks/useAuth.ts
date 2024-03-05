@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { User } from "../types";
 
 export const useAuth = () => {

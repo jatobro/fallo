@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Pressable, View, Text } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { useAlert } from "../hooks/useAlert";

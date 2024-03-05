@@ -1,5 +1,5 @@
-import * as Location from "expo-location";
 import { useState } from "react";
+import * as Location from "expo-location";
 
 export const useGetLocation = () => {
   const [location, setLocation] = useState<

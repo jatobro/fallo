@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { View, Text } from "react-native";
+import { Text, View } from "react-native";
 
 import { AlertButton } from "../components/AlertButton";
 import { MenuButton } from "../components/MenuButton";

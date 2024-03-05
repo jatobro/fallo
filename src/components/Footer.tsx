@@ -1,6 +1,6 @@
-import { Link } from "expo-router";
-import { View, Text } from "react-native";
+import { Text, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { Link } from "expo-router";
 
 export const Footer = () => {
   return (

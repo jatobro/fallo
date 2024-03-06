@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { User } from "~/types";
 
-export const useAuth = () => {
+export const useUser = () => {
   const [user, setUser] = useState<User | null>(null);
 
   const login = (user: User) => {

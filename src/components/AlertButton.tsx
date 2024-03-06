@@ -3,13 +3,13 @@ import { Pressable, Text } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { writeAlertData } from "~/api/alerts";
-import { useAuth } from "~/hooks/useAuth";
 import { useGetLocation } from "~/hooks/useGetLocation";
+import { useUser } from "~/hooks/useUser";
 import { styles } from "~/styles";
 
 export const AlertButton = () => {
   const { isLoading, location, getLocation } = useGetLocation();
-  const { user } = useAuth();
+  const { user } = useUser();
 
   useEffect(() => {
     if (location) {

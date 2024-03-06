@@ -1,11 +1,8 @@
-import { useEffect } from "react";
 import { Pressable, Text, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { Link, router } from "expo-router";
+import { router } from "expo-router";
 
-import { useAlert } from "~/hooks/useAlert";
 import { useGetLocation } from "~/hooks/useGetLocation";
-import { sendSMS } from "~/services/sms";
 import { styles } from "~/styles";
 
 type MenuButtonProps = {
@@ -17,21 +14,7 @@ export const MenuButton = ({
   variant,
   isConnected = false,
 }: MenuButtonProps) => {
-  const { location, getLocation } = useGetLocation();
-  const { alert, createAlert } = useAlert();
-
-  useEffect(() => {
-    (async () => {
-      if (location) {
-        const { latitude, longitude } = location.coords;
-        createAlert({ latitude, longitude }, "Chat with me!");
-
-        if (alert) {
-          await sendSMS(alert);
-        }
-      }
-    })();
-  }, [location]);
+  const { getLocation } = useGetLocation();
 
   const handlePress = () => {
     if (variant === "chat") {

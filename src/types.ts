@@ -15,3 +15,10 @@ export type Coordinates = {
   latitude: number;
   longitude: number;
 };
+
+export type Messages = {
+  _id: number;
+  text: string;
+  createdAt: Date;
+  user: User;
+};

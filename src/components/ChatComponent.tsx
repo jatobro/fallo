@@ -4,27 +4,37 @@ import { GiftedChat, IMessage } from "react-native-gifted-chat";
 import { useChatApi } from "~/hooks/useChatApi";
 import { useUser } from "~/hooks/useUser";
 
-interface Props {
-  initialMessage: IMessage;
-}
+const initialMessage: IMessage = {
+  _id: "1",
+  text: "Hello, hva trenger du hjelp med?",
+  createdAt: new Date(),
+  user: {
+    _id: 2,
+    name: "Kontakt Senteret",
+  },
+};
 
-export const ChatComponent: React.FC<Props> = ({ initialMessage }) => {
+export const ChatComponent = () => {
   const defaultUser = { _id: -1, name: "Uknown", phoneNumber: "12345678" };
   const { user } = useUser();
   const { messages, sendMessageToApi } = useChatApi();
-  const [giftedChatMessages, setGiftedChatMessages] = useState<IMessage[]>([
-    initialMessage,
-  ]);
+  const [giftedChatMessages, setGiftedChatMessages] = useState<IMessage[]>([]);
 
   useEffect(() => {
-    setGiftedChatMessages(
-      messages.map((message) => ({
-        _id: message._id,
-        text: message.text,
-        createdAt: message.createdAt, //createdAt: new Date(message.createdAt),
-        user: user || defaultUser,
-      })),
-    );
+    if (messages.length === 0) {
+      // If there are no messages, use initialMessage (This is not sendt to the backend.)
+      setGiftedChatMessages([initialMessage]);
+    } else {
+      // If there are messages, map them to GiftedChat message format
+      setGiftedChatMessages(
+        messages.map((message) => ({
+          _id: message._id,
+          text: message.text,
+          createdAt: message.createdAt,
+          user: user || defaultUser,
+        })),
+      );
+    }
   }, [messages]);
 
   const onSend = useCallback(
@@ -33,8 +43,6 @@ export const ChatComponent: React.FC<Props> = ({ initialMessage }) => {
         GiftedChat.append(previousMessages, newMessages),
       );
       newMessages.forEach((message) => {
-        console.log("createdAt Before:", message._id);
-        console.log("Converted:", new Date(message.createdAt));
         sendMessageToApi({
           _id: message._id.toString(),
           text: message.text,

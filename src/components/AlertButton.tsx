@@ -17,7 +17,6 @@ export const AlertButton = () => {
     if (location) {
       const { latitude, longitude } = location.coords;
       writeAlertData({
-        alertId: "test-alert-id",
         user,
         time: new Date(),
         coordinates: { longitude, latitude },

@@ -4,7 +4,6 @@ export type User = {
 };
 
 export type Alert = {
-  alertId: string;
   user: User | null;
   time: Date;
   coordinates: Coordinates;

@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Text, View } from "react-native";
 import { GiftedChat, IMessage } from "react-native-gifted-chat";
 
-const Chat = () => {
+const Page = () => {
   const [messages, setMessages] = useState<IMessage[]>([]); //useState<any[]>([]);
 
   useEffect(() => {
@@ -37,4 +37,4 @@ const Chat = () => {
   );
 };
 
-export default Chat;
+export default Page;

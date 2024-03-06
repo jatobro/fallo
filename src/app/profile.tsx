@@ -1,9 +1,9 @@
 import { Text, View } from "react-native";
 
-import { UserForm } from "../components/UserForm";
-import { useAuth } from "../hooks/useAuth";
+import { UserForm } from "~/components/UserForm";
+import { useAuth } from "~/hooks/useAuth";
 
-const Profile = () => {
+const Page = () => {
   const { user } = useAuth();
 
   return (
@@ -13,4 +13,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Page;

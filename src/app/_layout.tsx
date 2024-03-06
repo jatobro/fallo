@@ -3,8 +3,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Slot } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 
-import { Footer } from "../components/Footer";
-import { Header } from "../components/Header";
+import { Footer } from "~/components/Footer";
+import { Header } from "~/components/Header";
 
 const Layout = () => {
   return (
@@ -13,7 +13,6 @@ const Layout = () => {
       <View className="flex-1 bg-primary">
         <Slot />
       </View>
-
       <Footer />
       <StatusBar />
     </SafeAreaView>

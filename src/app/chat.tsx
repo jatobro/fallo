@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Text, View } from "react-native";
 import { GiftedChat, IMessage } from "react-native-gifted-chat";
 
 const Page = () => {

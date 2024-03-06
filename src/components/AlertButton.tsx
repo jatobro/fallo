@@ -1,17 +1,19 @@
 import { useEffect } from "react";
 import { Pressable, Text } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { LocationObject } from "expo-location";
+import { useAtomValue } from "jotai";
 
 import { writeAlertData } from "~/api/alerts";
+import { userAtom } from "~/atoms";
 import { useGetLocation } from "~/hooks/useGetLocation";
-import { useUser } from "~/hooks/useUser";
 import { styles } from "~/styles";
 
 export const AlertButton = () => {
   const { isLoading, location, getLocation } = useGetLocation();
-  const { user } = useUser();
+  const user = useAtomValue(userAtom);
 
-  useEffect(() => {
+  const createAndWriteAlert = (location?: LocationObject) => {
     if (location) {
       const { latitude, longitude } = location.coords;
       writeAlertData({
@@ -22,6 +24,10 @@ export const AlertButton = () => {
         message: "hjælp",
       });
     }
+  };
+
+  useEffect(() => {
+    createAndWriteAlert(location);
   }, [location]);
 
   return (

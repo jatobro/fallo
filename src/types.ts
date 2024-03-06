@@ -1,4 +1,5 @@
 export type User = {
+  _id: number;
   name: string;
   phoneNumber: string;
 };
@@ -17,8 +18,8 @@ export type Coordinates = {
 };
 
 export type Messages = {
-  _id: number;
+  _id: string;
   text: string;
   createdAt: Date;
-  user: User;
+  user: User | null;
 };

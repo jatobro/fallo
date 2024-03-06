@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 
-import { AlertButton } from "../components/AlertButton";
-import { MenuButton } from "../components/MenuButton";
-import { requestLocationPermission } from "../services/location";
+import { AlertButton } from "~/components/AlertButton";
+import { MenuButton } from "~/components/MenuButton";
+import { requestLocationPermission } from "~/services/location";
 
 const Page = () => {
   const [status, setStatus] = useState("");

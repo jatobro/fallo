@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
 
-import { UserForm } from "../components/UserForm";
-import { useAuth } from "../hooks/useAuth";
+import { UserForm } from "~/components/UserForm";
+import { useAuth } from "~/hooks/useAuth";
 
 const Page = () => {
   const { user } = useAuth();

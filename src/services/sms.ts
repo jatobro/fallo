@@ -1,6 +1,6 @@
 import * as SMS from "expo-sms";
 
-import { type Alert } from "../types";
+import { type Alert } from "~/types";
 
 export const sendSMS = async (alert: Alert) => {
   console.log("checking SMS availability...");

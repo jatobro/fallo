@@ -1,6 +1,6 @@
 import { View } from "react-native";
 
-import { SettingButton } from "../components/SettingButton";
+import { SettingButton } from "~/components/SettingButton";
 
 const Page = () => {
   return (

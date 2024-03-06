@@ -8,6 +8,4 @@ export const requestLocationPermission = async () => {
   } else {
     console.error("location permission denied");
   }
-
-  return status;
 };

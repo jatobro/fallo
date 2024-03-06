@@ -1,27 +1,24 @@
-import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
+import { useAtomValue } from "jotai";
 
 import { AlertButton } from "~/components/AlertButton";
 import { MenuButton } from "~/components/MenuButton";
-import { requestLocationPermission } from "~/services/location";
+import { userAtom } from "~/atoms";
 
 const Page = () => {
-  const [status, setStatus] = useState("");
-
-  useEffect(() => {
-    (async () => {
-      const status = await requestLocationPermission();
-      setStatus(status);
-    })();
-  }, []);
+  const user = useAtomValue(userAtom);
 
   return (
     <View className="flex h-full justify-around">
-      <View />
-      <View className="flex flex-col items-center justify-center">
-        <Text className="mb-3 text-lg">
-          {status ? "Trykk for å få hjelp" : "TILLAT STEDSTJENESTER"}
+      {user ? (
+        <Text className=" text-center text-2xl">{`Hei ${user.name}!`}</Text>
+      ) : (
+        <Text className="text-center text-lg">
+          Trykk på profil for å lagre personlig informasjon
         </Text>
+      )}
+
+      <View className="flex flex-col items-center justify-center">
         <AlertButton />
       </View>
       <View className="flex h-1/3 w-full flex-row items-center justify-around p-4">

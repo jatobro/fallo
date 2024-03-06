@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
+
 import { AlertButton } from "../components/AlertButton";
 import { MenuButton } from "../components/MenuButton";
-import { useAlert } from "../hooks/useAlert";
 import { requestLocationPermission } from "../services/location";
 
 const Page = () => {

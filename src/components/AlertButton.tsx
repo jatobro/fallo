@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Pressable, Text } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
+
 import { writeAlertData } from "../api/alerts";
 import { useAlert } from "../hooks/useAlert";
 import { useGetLocation } from "../hooks/useGetLocation";

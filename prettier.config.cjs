@@ -2,15 +2,30 @@
 
 /** @type {import("@ianvs/prettier-plugin-sort-imports").PrettierConfig} */
 module.exports = {
-  // Standard prettier options
+  arrowParens: "always",
+  printWidth: 80,
   singleQuote: false,
+  jsxSingleQuote: false,
   semi: true,
-  // Since prettier 3.0, manually specifying plugins is required
+  trailingComma: "all",
+  tabWidth: 2,
+  // pluginSearchDirs: false,
   plugins: [
     "@ianvs/prettier-plugin-sort-imports",
     "prettier-plugin-tailwindcss",
   ],
-  // This plugin's options
+  importOrder: [
+    "^(react/(.*)$)|^(react$)|^(react-native(.*)$)",
+    "^(expo(.*)$)|^(expo$)",
+    "<THIRD_PARTY_MODULES>",
+    //"",
+    //"^@fallo/(.*)$",
+    "",
+    //"^~/utils/(.*)$",
+    //"^~/components/(.*)$",
+    //"^~/styles/(.*)$",
+    //"^~/(.*)$",
+    "^[./]",
+  ],
   importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
-  importOrderTypeScriptVersion: "5.0.0",
 };

@@ -1,4 +1,5 @@
 import { ref, set } from "firebase/database";
+
 import { db } from "../firebase/config";
 import { type Alert } from "../types";
 

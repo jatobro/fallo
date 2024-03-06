@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Pressable, Text, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
+
 import { useAlert } from "../hooks/useAlert";
 import { useGetLocation } from "../hooks/useGetLocation";
 import { sendSMS } from "../services/sms";

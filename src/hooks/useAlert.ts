@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { writeAlertData } from "../api/alerts";
 import { Alert, Coordinates } from "../types";
 import { useAuth } from "./useAuth";

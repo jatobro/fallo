@@ -2,16 +2,15 @@ import { useEffect } from "react";
 import { Pressable, Text } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { LocationObject } from "expo-location";
-import { useAtomValue } from "jotai";
 
 import { writeAlertData } from "~/api/alerts";
-import { userAtom } from "~/atoms";
 import { useGetLocation } from "~/hooks/useGetLocation";
+import { useUser } from "~/hooks/useUser";
 import { styles } from "~/styles";
 
 export const AlertButton = () => {
   const { isLoading, location, getLocation } = useGetLocation();
-  const user = useAtomValue(userAtom);
+  const { user } = useUser();
 
   const createAndWriteAlert = (location?: LocationObject) => {
     if (location) {

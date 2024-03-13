@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Pressable, Text, TextInput, View } from "react-native";
-import { useSetAtom } from "jotai";
 
-import { userAtom } from "~/atoms";
+import { useUser } from "~/hooks/useUser";
 
 export const UserForm = () => {
-  const setUser = useSetAtom(userAtom);
+  const { login } = useUser();
 
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -27,7 +26,7 @@ export const UserForm = () => {
       <Pressable
         disabled={!(name && phoneNumber)}
         className="mt-8 rounded bg-black px-4 py-3"
-        onPress={() => setUser({ name, phoneNumber })}
+        onPress={() => login({ name, phoneNumber })}
       >
         <Text className="text-white">Lagre</Text>
       </Pressable>

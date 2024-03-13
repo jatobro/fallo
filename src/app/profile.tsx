@@ -1,12 +1,10 @@
 import { Pressable, Text, View } from "react-native";
-import { useAtom } from "jotai";
-import { RESET } from "jotai/utils";
 
 import { UserForm } from "~/components/UserForm";
-import { userAtom } from "~/atoms";
+import { useUser } from "~/hooks/useUser";
 
 const Page = () => {
-  const [user, setUser] = useAtom(userAtom);
+  const { user, logout } = useUser();
 
   return (
     <View className="container h-full items-center py-16">
@@ -16,7 +14,7 @@ const Page = () => {
           <Text className="mb-10 text-slate-400">{user.phoneNumber}</Text>
           <Pressable
             className="mt-8 rounded bg-black px-4 py-3"
-            onPress={() => setUser(RESET)}
+            onPress={() => logout()}
           >
             <Text className="text-white">Rediger</Text>
           </Pressable>

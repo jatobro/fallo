@@ -33,4 +33,5 @@ Kjør applikasjonen ved å starte Expo kommandolinje
 ## Authors
 
 - [@jatobro](https://www.github.com/jatobro)
+- [@miebf](https.//www.github.com/miebf)
 

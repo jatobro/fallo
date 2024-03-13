@@ -1,5 +1,4 @@
 import { Pressable, Text, View } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useAtom } from "jotai";
 import { RESET } from "jotai/utils";
 
@@ -10,7 +9,7 @@ const Page = () => {
   const [user, setUser] = useAtom(userAtom);
 
   return (
-    <View className="container h-full items-center py-8">
+    <View className="container h-full items-center py-16">
       {user ? (
         <View className="flex items-center justify-center">
           <Text className="mb-2 text-4xl">{user.name}</Text>
@@ -25,10 +24,6 @@ const Page = () => {
       ) : (
         <UserForm />
       )}
-
-      <Pressable onPress={() => AsyncStorage.getItem("user").then(console.log)}>
-        <Text className="mt-8 text-slate-400">Logg async storage</Text>
-      </Pressable>
     </View>
   );
 };

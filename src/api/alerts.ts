@@ -1,3 +1,4 @@
+import uuid from "react-native-uuid";
 import { onValue, ref, set } from "firebase/database";
 
 import { db } from "~/firebase/config";
@@ -6,7 +7,7 @@ import { type Alert } from "~/types";
 export const writeAlertData = (alert: Alert) => {
   console.log("attempting to write alert...");
 
-  const alertId = "test-id";
+  const alertId = uuid.v4();
 
   set(ref(db, "alerts/" + alertId), alert)
     .then(() =>

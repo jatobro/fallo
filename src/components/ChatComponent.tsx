@@ -62,7 +62,7 @@ export const ChatComponent = () => {
   return (
     <GiftedChat
       messages={giftedChatMessages}
-      onSend={(messages) => onSend(messages)}
+      onSend={onSend}
       user={{
         _id: user?._id || defaultUser._id,
       }}

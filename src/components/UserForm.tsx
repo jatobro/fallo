@@ -25,7 +25,7 @@ export const UserForm = () => {
         value={phoneNumber}
       />
       <Pressable
-        disabled={!name || !phoneNumber}
+        disabled={!(name && phoneNumber)}
         className="mt-8 rounded bg-black px-4 py-3"
         onPress={() => setUser({ name, phoneNumber })}
       >

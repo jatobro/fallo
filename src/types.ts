@@ -1,7 +1,6 @@
 export type User = {
-  _id: number;
-  name: string;
-  phoneNumber: string;
+  name?: string;
+  phoneNumber?: string;
 };
 
 export type Alert = {

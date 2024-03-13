@@ -1,6 +1,6 @@
 # Fallo
 
-Dette er den tilhørende mobilapplikasjonen til systemet Fallo. Fallo skal være et enklere og mer effektivt tilbud til trygghetsalarm
+Dette er den tilhørende mobilapplikasjonen til systemet Fallo. Fallo skal være et enklere og mer effektivt tilbud til trygghetsalarm. Appen er utviklet i forbindelse med faget TMT4853 Eksperter i Team - Biomaterialer og Helse. 
 
 
 ## Kjør lokalt

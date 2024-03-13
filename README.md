@@ -1,9 +1,36 @@
 # Fallo
 
-Dette er en del av prosjektoppgaven i faget TMT4853 Eksperter i team - Biomaterialer og helse (2024 VÅR).
-Produktet vårt er en variant av en varselalarm og den tilknyttede appen Fallo.
+Dette er den tilhørende mobilapplikasjonen til systemet Fallo. Fallo skal være et enklere og mer effektivt tilbud til trygghetsalarm
 
-Vi tar også Andriod Studio i bruk.
 
-Kjør koden med
-`npx expo start`
+## Kjør lokalt
+
+Klon repoet med git
+
+```bash
+  git clone https://github.com/jatobro/fallo.git
+```
+
+Gå inn i prosjektet 
+
+```bash
+  cd fallo
+```
+
+Installer nødvendige Node.js avhengigheter
+
+```bash
+  npm install
+```
+
+Kjør applikasjonen ved å starte Expo kommandolinje
+
+```bash
+  npx expo start
+```
+
+
+## Authors
+
+- [@jatobro](https://www.github.com/jatobro)
+

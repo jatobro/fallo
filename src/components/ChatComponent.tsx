@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { GiftedChat, IMessage } from "react-native-gifted-chat";
+import { useAtomValue } from "jotai";
 
+import { userAtom } from "~/atoms";
 import { useChatApi } from "~/hooks/useChatApi";
-import { useUser } from "~/hooks/useUser";
 
 const initialMessage: IMessage = {
   _id: "1",
@@ -16,7 +17,7 @@ const initialMessage: IMessage = {
 
 export const ChatComponent = () => {
   const defaultUser = { _id: -1, name: "Uknown", phoneNumber: "12345678" };
-  const { user } = useUser();
+  const user = useAtomValue(userAtom);
   const { messages, sendMessageToApi } = useChatApi();
   const [giftedChatMessages, setGiftedChatMessages] = useState<IMessage[]>([]);
 

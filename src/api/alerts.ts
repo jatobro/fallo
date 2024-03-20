@@ -1,28 +1,46 @@
 import uuid from "react-native-uuid";
+import * as Location from "expo-location";
 import { onValue, ref, set } from "firebase/database";
 
 import { db } from "~/firebase/config";
-import { type Alert } from "~/types";
+import { User, type Alert } from "~/types";
 
-export const writeAlertData = (alert: Alert) => {
-  console.log("attempting to write alert...");
+export const writeAlertData = (
+  user: User | null,
+  location?: Location.LocationObject,
+) => {
+  if (location) {
+    console.log("attempting to write alert...");
 
-  const alertId = uuid.v4();
+    const { latitude, longitude } = location.coords;
 
-  set(ref(db, "alerts/" + alertId), alert)
-    .then(() =>
-      console.log(`alert '${JSON.stringify(alert)}' written to database`),
-    )
-    .catch((error) =>
-      console.error("Error writing alert to database: ", error),
-    );
+    const alert: Alert = {
+      user,
+      time: new Date(),
+      coordinates: { longitude, latitude },
+      message: "hjælp",
+    };
+
+    const alertId = uuid.v4();
+
+    set(ref(db, "alerts/" + alertId), alert)
+      .then(() =>
+        console.log(`alert '${JSON.stringify(alert)}' written to database`),
+      )
+      .catch((error) =>
+        console.error("Error writing alert to database: ", error),
+      );
+  }
 };
 
-export const listenAlerts = () => {
-  const alertsRef = ref(db, "alerts");
+export const listenButtonClick = (
+  user: User | null,
+  location?: Location.LocationObject,
+) => {
+  const clickRef = ref(db, "click");
 
-  onValue(alertsRef, (snapshot) => {
-    const data: Record<string, Alert> = snapshot.val();
-    console.log("alerts data: ", data);
+  onValue(clickRef, (_) => {
+    console.log("click detected, writing alert...");
+    writeAlertData(user, location);
   });
 };

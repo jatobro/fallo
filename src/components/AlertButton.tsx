@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Pressable, Text } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { LocationObject } from "expo-location";
 
 import { writeAlertData } from "~/api/alerts";
 import { useGetLocation } from "~/hooks/useGetLocation";
@@ -12,20 +11,8 @@ export const AlertButton = () => {
   const { isLoading, location, getLocation } = useGetLocation();
   const { user } = useUser();
 
-  const createAndWriteAlert = (location?: LocationObject) => {
-    if (location) {
-      const { latitude, longitude } = location.coords;
-      writeAlertData({
-        user,
-        time: new Date(),
-        coordinates: { longitude, latitude },
-        message: "hjælp",
-      });
-    }
-  };
-
   useEffect(() => {
-    createAndWriteAlert(location);
+    writeAlertData(user, location);
   }, [location]);
 
   return (

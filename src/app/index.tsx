@@ -1,14 +1,21 @@
 import { useEffect } from "react";
 import { Redirect } from "expo-router";
+import { useAtomValue } from "jotai";
 
-import { listenAlerts } from "~/api/alerts";
+import { listenButtonClick } from "~/api/alerts";
+import { userAtom } from "~/atoms";
+import { useGetLocation } from "~/hooks/useGetLocation";
 import { requestLocationPermission } from "~/services/location";
 
 const Page = () => {
+  const user = useAtomValue(userAtom);
+  const { location, getLocation } = useGetLocation();
+
   const onAppStart = async () => {
     await requestLocationPermission();
+    //await getLocation();
 
-    listenAlerts(); // listen for changes to alerts
+    //listenButtonClick(user, location); // listen for changes to alerts
   };
 
   useEffect(() => {

@@ -2,7 +2,6 @@ import { Pressable, Text, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { router } from "expo-router";
 
-import { useGetLocation } from "~/hooks/useGetLocation";
 import { styles } from "~/styles";
 
 type MenuButtonProps = {
@@ -14,24 +13,17 @@ export const MenuButton = ({
   variant,
   isConnected = false,
 }: MenuButtonProps) => {
-  const { getLocation } = useGetLocation();
-
   const handlePress = () => {
     if (variant === "chat") {
       router.navigate("/chat");
+    } else {
+      //simulate connection
     }
   };
 
   return (
     <Pressable
-      //onPress={() => getLocation()}
-      onPress={() => {
-        if (variant === "chat") {
-          handlePress();
-        } else {
-          getLocation(); // Otherwise, get location
-        }
-      }}
+      onPress={handlePress}
       style={styles.shadow}
       className="aspect-[3/4] w-5/12 items-center justify-center rounded-xl border-2 border-slate-100 bg-[#E6FBFF]"
     >

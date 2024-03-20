@@ -1,13 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Pressable, Text, TextInput, View } from "react-native";
+import uuid from "react-native-uuid";
 
 import { useUser } from "~/hooks/useUser";
+
+const setThisUserid = uuid.v4().toString();
 
 export const UserForm = () => {
   const { login } = useUser();
 
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [_id, setID] = useState("");
+
+  useEffect(() => {
+    const setThisUserid = uuid.v4().toString();
+    setID(setThisUserid);
+  }, []);
 
   return (
     <View className="container items-center">
@@ -26,7 +35,7 @@ export const UserForm = () => {
       <Pressable
         disabled={!(name && phoneNumber)}
         className="mt-8 rounded bg-black px-4 py-3"
-        onPress={() => login({ name, phoneNumber })}
+        onPress={() => login({ _id, name, phoneNumber })}
       >
         <Text className="text-white">Lagre</Text>
       </Pressable>

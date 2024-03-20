@@ -13,7 +13,10 @@ export const fetchMessages = () => {
             _id: key, // Assuming the key is the message ID
             text: messagesData[key].text,
             createdAt: new Date(messagesData[key].createdAt),
-            user: messagesData[key].user,
+            user: {
+              _id: messagesData[key].user._id,
+              name: messagesData[key].user.name,
+            },
           }),
         );
         return messagesArray;
@@ -40,5 +43,3 @@ export const sendMessage = (message: Messages) => {
       console.error("Error sending message:", error);
     });
 };
-
-////////////////////////////////////////////////////////////////////////

@@ -1,6 +1,7 @@
 export type User = {
-  name: string;
-  phoneNumber: string;
+  _id?: string;
+  name?: string;
+  phoneNumber?: string;
 };
 
 export type Alert = {
@@ -19,5 +20,8 @@ export type Messages = {
   _id: string;
   text: string;
   createdAt: Date;
-  user: User | null;
+  user: {
+    _id: string;
+    name: string;
+  };
 };

@@ -34,12 +34,12 @@ export const writeAlertData = (
 };
 
 export const listenButtonClick = (user: User | null) => {
-  const clickRef = ref(db, "click");
+  const fallRef = ref(db, "fall");
 
   let init = true;
 
-  onValue(clickRef, async (_) => {
-    console.log("click detected, writing alert...");
+  onValue(fallRef, async (_) => {
+    console.log("fall detected, writing alert...");
 
     const location = await Location.getCurrentPositionAsync({});
 

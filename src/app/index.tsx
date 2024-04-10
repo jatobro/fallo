@@ -4,18 +4,17 @@ import { useAtomValue } from "jotai";
 
 import { listenButtonClick } from "~/api/alerts";
 import { userAtom } from "~/atoms";
-import { useGetLocation } from "~/hooks/useGetLocation";
 import { requestLocationPermission } from "~/services/location";
 
 const Page = () => {
   const user = useAtomValue(userAtom);
-  const { location, getLocation } = useGetLocation();
+  //const { location, getLocation } = useGetLocation();
 
   const onAppStart = async () => {
     await requestLocationPermission();
     //await getLocation();
 
-    //listenButtonClick(user, location); // listen for changes to alerts
+    listenButtonClick(user); // listen for changes to alerts
   };
 
   useEffect(() => {

@@ -33,14 +33,14 @@ export const writeAlertData = (
   }
 };
 
-export const listenButtonClick = (
-  user: User | null,
-  location?: Location.LocationObject,
-) => {
+export const listenButtonClick = (user: User | null) => {
   const clickRef = ref(db, "click");
 
-  onValue(clickRef, (_) => {
+  onValue(clickRef, async (_) => {
     console.log("click detected, writing alert...");
+
+    const location = await Location.getCurrentPositionAsync({});
+
     writeAlertData(user, location);
   });
 };

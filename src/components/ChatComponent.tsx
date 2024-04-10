@@ -107,7 +107,7 @@ export const ChatComponent = () => {
   const renderMessage = (message: MessageProps<IMessage>) => {
     const isMyMessage =
       message.currentMessage?.user?._id.toString() ===
-      (myUser._id || defaultUser._id.toString());
+      (myUser._id || defaultUser._id);
 
     return (
       <View
